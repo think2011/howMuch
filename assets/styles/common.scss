@@ -1,0 +1,86 @@
+@import "mixin.scss";
+@import "../lib/hotcss.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  #scene1 {
+    height: 100%;
+    background: #F0F0F0;
+
+    .chat-container {
+      display: flex;
+      flex-flow: column wrap;
+      -webkit-overflow-scrolling: touch;
+
+      .item {
+        display: flex;
+        flex-flow: row nowrap;
+        padding-right: 17%;
+        margin-top: px2rem(25);
+
+        &.right {
+          flex-flow: row-reverse wrap;
+          padding-right: 0;
+          padding-left: 10%;
+
+          img {
+            margin: 0 px2rem(20) 0 px2rem(25);
+          }
+
+          .msg {
+            background: #FFDB55;
+
+            &:before {
+              left: auto;
+              right: px2rem(-12);
+              top: 20%;
+              @include triangle(right, px2rem(20), px2rem(20), #FFDB55);
+            }
+          }
+        }
+
+        img {
+          width: px2rem(85);
+          height: px2rem(85);
+          flex-shrink: 0;
+          margin: 0 px2rem(25) 0 px2rem(20);
+        }
+
+        .msg {
+          font-size: px2rem(30);
+          border-radius: px2rem(10);
+          padding: px2rem(30);
+          background: #fff;
+          position: relative;
+          box-shadow: 0 px2rem(2) px2rem(5) px2rem(-2) rgba(0, 0, 0, .3);
+
+          &:before {
+            position: absolute;
+            left: px2rem(-12);
+            top: 20%;
+            @include triangle(left, px2rem(20), px2rem(20), #fff);
+          }
+
+        }
+      }
+    }
+
+    .send-container {
+      width: 100%;
+      height: px2rem(104);
+      position: fixed;
+      bottom: 0;
+      background: #fff url("../img/send.png") no-repeat 0 0;
+      background-size: 100%;
+    }
+  }
+}
