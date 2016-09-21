@@ -1,0 +1,25 @@
+@import "mixin.scss";
+@import "animate.scss";
+@import "../assets/lib/animate.css";
+@import "../assets/lib/hotcss.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#scene1,
+#scene2 {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@import "./scene1.scss";
+@import "./scene2.scss";
