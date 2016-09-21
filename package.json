@@ -1,0 +1,24 @@
+{
+  "name": "how-much",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "browser-sync start --server --files='**/*.css,  **/*.html, **/*-compiled.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/think2011/howMuch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/think2011/howMuch/issues"
+  },
+  "homepage": "https://github.com/think2011/howMuch#readme",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0"
+  }
+}

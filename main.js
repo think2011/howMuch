@@ -1,1 +1,1 @@
-console.log(12)
+new Scene1()

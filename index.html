@@ -3,42 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>how much ya</title>
-    <link rel="stylesheet" href="./assets/styles/common.css">
     <script src="./assets/lib/hotcss.js"></script>
+    <link rel="stylesheet" href="./assets/styles/common.css">
 </head>
 <body>
 <div id="scene1">
     <div class="chat-container">
-        <div class="item">
-            <img src="http://placeimg.com/85/85/people" alt="">
+        <div class="item animated fadeIn">
+            <img class="avatar" src="http://placeimg.com/85/85/people" alt="">
             <div class="msg">
                 😱
             </div>
         </div>
 
-        <div class="item right">
-            <img src="http://placeimg.com/85/85/people" alt="">
+        <div class="item right animated fadeIn">
+            <img class="avatar" src="http://placeimg.com/85/85/people?me" alt="">
             <div class="msg">
-                👯
+                怎么了
             </div>
         </div>
 
-        <div class="item">
-            <img src="http://placeimg.com/85/85/people" alt="">
+        <div class="item animated fadeIn">
+            <img class="avatar" src="http://placeimg.com/85/85/people" alt="">
             <div class="msg">
-                😱爱上大受打击第三方是的
-                快圣诞节饭是的
+                😭 就要促销了, 价格还没定, 帮我<span>定价格</span>, 回头送你 <br>【20元优惠券】
+            </div>
+        </div>
+
+        <div class="item animated fadeInLeft">
+            <img class="avatar" src="http://placeimg.com/85/85/people" alt="">
+            <div class="msg img">
+                <img src="./assets/img/coupon.png" alt="">
             </div>
         </div>
     </div>
 
-    <!--   <div class="send-container">
-           111111
-       </div>-->
+    <div class="send-container animated">
+        <div class="input-box" id="typeing"></div>
+
+        <button class="btn-send animated">开始游戏</button>
+    </div>
 </div>
 
-<script src="clsses/Game-compiled.js"></script>
+<script src="assets/lib/theater.js"></script>
+
 <script src="clsses/Tools-compiled.js"></script>
+<script src="clsses/Game-compiled.js"></script>
+<script src="clsses/Scene1-compiled.js"></script>
 <script src="./main-compiled.js"></script>
 </body>
 </html>
