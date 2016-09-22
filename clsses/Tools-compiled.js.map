@@ -1,1 +1,0 @@
-{"version":3,"sources":["Tools.js"],"names":[],"mappings":";;;;IAAM,K,GACF,iBAAc;AAAA;AAEb,C","file":"Tools-compiled.js","sourcesContent":["class Tools {\n    constructor() {\n\n    }\n}"]}

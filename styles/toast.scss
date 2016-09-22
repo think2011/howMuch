@@ -1,0 +1,9 @@
+.toast-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background: seagreen;
+  padding: px2rem(30) px2rem(32);
+  font-size: px2rem(30);
+  animation-duration: .3s;
+}

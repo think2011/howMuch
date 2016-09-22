@@ -1,7 +1,6 @@
 class Scene1 {
     constructor() {
         this.$container     = document.querySelector('#scene1')
-        this.$nextContainer = document.querySelector('#scene2')
         this.$chatContainer = this.$container.querySelector('.chat-container')
         this.$prize         = this.$chatContainer.querySelectorAll('.item')[3]
         this.$sendContainer = this.$container.querySelector('.send-container')
@@ -11,24 +10,26 @@ class Scene1 {
     }
 
     init() {
-        this.$prize.addEventListener('animationend', () => {
+        this.$container.style.display = 'block'
+
+        tools.animationEvent(this.$prize, 'AnimationEnd', () => {
             setTimeout(() => {
                 this.startTyping()
             }, 300)
-        }, false)
+        })
 
         // 开始游戏
         this.$start.addEventListener('click', () => {
-            this.$container.addEventListener('animationend', () => {
-                this.$container.remove()
-            }, false)
+            tools.animationEvent(this.$container, 'AnimationEnd', this.destroy.bind(this))
 
-            this.$container.classList.add('bounceOutLeft', 'animated')
-            this.$nextContainer.style.display = 'block'
-            this.$nextContainer.classList.add('bounceInRight', 'animated')
+            this.$container.classList.add('bounceOutLeft')
+            this.$container.classList.add('animated')
+            new Scene2()
         }, false)
+    }
 
-        this.$container.style.display = 'block'
+    destroy() {
+        this.$container.remove()
     }
 
     startTyping() {
@@ -42,6 +43,7 @@ class Scene1 {
             .addScene('typeing:😏 多大的事啊, 我来帮你吧!', 2500)
             .addScene(theater.replay.bind(theater))
 
-        this.$sendContainer.classList.add('bounceInUp', 'active')
+        this.$sendContainer.classList.add('bounceInUp')
+        this.$sendContainer.classList.add('active')
     }
 }

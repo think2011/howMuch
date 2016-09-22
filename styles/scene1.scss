@@ -95,12 +95,11 @@
     bottom: 0;
     background: #fff url("../assets/img/send.png") no-repeat 0 0;
     background-size: 100% 100%;
-    display: flex;
+    display: none;
     align-items: center;
-    opacity: 0;
 
     &.active {
-      opacity: 1;
+      display: flex;
 
       .btn-send {
         display: inline-block;

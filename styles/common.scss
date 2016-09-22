@@ -13,6 +13,12 @@ html, body {
   height: 100%;
 }
 
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 #scene1,
 #scene2 {
   width: 100%;
@@ -21,5 +27,6 @@ html, body {
   left: 0;
 }
 
+@import "./toast.scss";
 @import "./scene1.scss";
 @import "./scene2.scss";
