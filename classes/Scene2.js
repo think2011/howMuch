@@ -51,23 +51,26 @@ class Scene2 {
         this.count--
 
         let resultMap = {
-            ok  : ['flip', '😘看起来很合适, 就定这个价!'],
-            high: ['wobble', '😂 太贵了吧'],
-            low : ['wobble', '😨 太便宜了吧']
+            ok  : ['flip', '看起来很合适, 就定这个价!'],
+            high: ['wobble', '太贵了吧'],
+            low : ['wobble', '太便宜了吧']
         }
         let result    = price === this.price ? 'ok' : price > this.price ? 'high' : 'low'
 
         $target.classList.add('animated')
         $target.classList.add(resultMap[result][0])
         tools.animationEvent($target, 'AnimationEnd', () => {
-            $target.classList.remove(resultMap[result][0])
-            toast({content: resultMap[result][1]})
+            let face = null
 
             if (result !== 'ok') {
                 $target.setAttribute('disabled', 'disabled')
+                face = ['😂', '😨', '😥', '😓'][parseInt(Math.random() * (4))]
             } else {
-                return 'ok'
+                face = '😘'
             }
+
+            $target.classList.remove(resultMap[result][0])
+            toast({content: `${face} ${resultMap[result][1]}`})
 
             if (this.count < 1) {
                 return this.gameOver()
