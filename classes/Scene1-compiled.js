@@ -30,11 +30,10 @@ var Scene1 = function () {
                 }, 300);
             });
 
-            this.startTyping();
             // 开始游戏
             this.$start.addEventListener('click', function () {
-                _this.destroy.bind(_this);
                 new Scene2();
+                _this.destroy();
             }, false);
         }
     }, {

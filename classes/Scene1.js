@@ -18,12 +18,10 @@ class Scene1 {
             }, 300)
         })
 
-
-        this.startTyping()
         // 开始游戏
         this.$start.addEventListener('click', () => {
-            this.destroy.bind(this)
             new Scene2()
+            this.destroy()
         }, false)
     }
 
