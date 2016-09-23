@@ -33,12 +33,7 @@ var Scene1 = function () {
             this.startTyping();
             // 开始游戏
             this.$start.addEventListener('click', function () {
-                tools.animationEvent(_this.$container, 'AnimationEnd', function () {
-                    _this.destroy.bind(_this);
-                });
-
-                _this.$container.classList.add('slideOutUp');
-                _this.$container.classList.add('animated');
+                _this.destroy.bind(_this);
                 new Scene2();
             }, false);
         }

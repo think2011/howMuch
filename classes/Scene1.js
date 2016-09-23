@@ -22,12 +22,7 @@ class Scene1 {
         this.startTyping()
         // 开始游戏
         this.$start.addEventListener('click', () => {
-            tools.animationEvent(this.$container, 'AnimationEnd', () => {
-                this.destroy.bind(this)
-            })
-
-            this.$container.classList.add('slideOutUp')
-            this.$container.classList.add('animated')
+            this.destroy.bind(this)
             new Scene2()
         }, false)
     }

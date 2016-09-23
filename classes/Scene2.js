@@ -13,7 +13,7 @@ class Scene2 {
             // toast({content: '🙏 最多只能定3次价格噢, 不然来不及了', time: 4000})
         }, 1000)
 
-        this.$container.classList.add('bounceInUp')
+        this.$container.classList.add('slideInUp')
         this.$container.classList.add('animated')
         this.$container.style.display = 'block'
 
@@ -38,7 +38,7 @@ class Scene2 {
         this.$prices.innerHTML = ''
         prices.forEach((item) => {
             let html = `
-        <li class="item">
+        <li class="item animated">
             <button data-price="${item}">${item}</button>
         </li>`
 

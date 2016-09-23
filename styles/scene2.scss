@@ -2,6 +2,18 @@
   height: 100%;
   display: none;
   background-image: linear-gradient(180deg, #F1978A, #E84A41);
+  animation-duration: .3s;
+
+  .ask {
+    animation-name: fadeInUp;
+    animation-delay: .3s;
+    animation-duration: .5s;
+  }
+  .prices .item {
+    animation-name: fadeInUp;
+    animation-delay: .5s;
+    animation-duration: .5s;
+  }
 
   .goods {
     width: px2rem(678);

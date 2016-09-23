@@ -25,7 +25,7 @@ var Scene2 = function () {
                 // toast({content: '🙏 最多只能定3次价格噢, 不然来不及了', time: 4000})
             }, 1000);
 
-            this.$container.classList.add('bounceInUp');
+            this.$container.classList.add('slideInUp');
             this.$container.classList.add('animated');
             this.$container.style.display = 'block';
 
@@ -53,7 +53,7 @@ var Scene2 = function () {
 
             this.$prices.innerHTML = '';
             prices.forEach(function (item) {
-                var html = '\n        <li class="item">\n            <button data-price="' + item + '">' + item + '</button>\n        </li>';
+                var html = '\n        <li class="item animated">\n            <button data-price="' + item + '">' + item + '</button>\n        </li>';
 
                 _this2.$prices.innerHTML += html;
             });
