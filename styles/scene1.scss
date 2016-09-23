@@ -81,10 +81,10 @@
 
   .btn-send {
     position: absolute;
-    top: 970px;
-    left: 205px;
-    width: 330px;
-    height: 95px;
+    top: px2rem(970);
+    left: px2rem(205);
+    width: px2rem(330);
+    height: px2rem(95);
     opacity: 0;
     display: inline-block;
   }
