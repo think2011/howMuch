@@ -1,6 +1,7 @@
 #scene1 {
   height: 100%;
-  background: #F0F0F0;
+  background: #EB544A url("../assets/img/s1-bg.png") no-repeat 0 0;
+  background-size: 100%;
   display: none;
 
   .chat-container {
@@ -8,6 +9,8 @@
     flex-direction: column;
     flex-wrap: wrap;
     -webkit-overflow-scrolling: touch;
+    margin-top: px2rem(130);
+    transform: scale(.65);
 
     .item {
       display: flex;
@@ -34,18 +37,6 @@
             @include triangle(right, px2rem(20), px2rem(20), #FFDB55);
           }
         }
-      }
-
-      &:nth-child(2) {
-        animation-delay: 1s;
-      }
-
-      &:nth-child(3) {
-        animation-delay: 2s;
-      }
-
-      &:nth-child(4) {
-        animation-delay: 2.5s;
       }
 
       img.avatar {
@@ -88,6 +79,16 @@
     }
   }
 
+  .btn-send {
+    position: absolute;
+    top: 970px;
+    left: 205px;
+    width: 330px;
+    height: 95px;
+    opacity: 0;
+    display: inline-block;
+  }
+
   .send-container {
     width: 100%;
     height: px2rem(104);
@@ -113,17 +114,6 @@
       height: 70%;
       margin-left: px2rem(100);
       border-bottom: 2px solid #FCB995;
-    }
-
-    .btn-send {
-      color: #fff;
-      border: 0;
-      font-size: px2rem(30);
-      border-radius: px2rem(5);
-      padding: px2rem(20) px2rem(18);
-      background: #FE5B00;
-      margin-left: px2rem(18);
-      display: none;
     }
   }
 }
