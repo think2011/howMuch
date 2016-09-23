@@ -10,4 +10,10 @@
   border-radius: .21333rem 0 0 .21333rem;
   top: px2rem(610);
   right: 0;
+
+  &.top {
+    min-width: 100%;
+    top: 0;
+    border-radius: 0;
+  }
 }

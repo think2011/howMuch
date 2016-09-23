@@ -15,14 +15,15 @@ let toast = new class Toast {
         div.classList.add('toast-container')
         div.classList.add('fadeInRight')
         div.classList.add('animated')
+        div.classList.add(options.className)
         div.innerHTML = options.content
         document.body.appendChild(div)
 
         setTimeout(() => {
-            div.classList.remove('fadeInRight')
-            div.classList.add('fadeOutRight')
-            tools.animationEvent(div, 'AnimationEnd', () => div.remove())
-            cb && cb()
+            /*    div.classList.remove('fadeInRight')
+             div.classList.add('fadeOutRight')
+             tools.animationEvent(div, 'AnimationEnd', () => div.remove())
+             cb && cb()*/
         }, options.time)
     }
 }

@@ -9,10 +9,6 @@ class Scene2 {
     }
 
     init() {
-        setTimeout(() => {
-            // toast({content: '🙏 最多只能定3次价格噢, 不然来不及了', time: 4000})
-        }, 1000)
-
         this.$container.classList.add('slideInUp')
         this.$container.classList.add('animated')
         this.$container.style.display = 'block'
