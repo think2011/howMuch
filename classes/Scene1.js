@@ -37,7 +37,7 @@ class Scene1 {
 
         theater
             .addActor('typeing')
-            .addScene('typeing:😏 多大的事啊, 我来帮你吧!', 2500)
+            .addScene('typeing:😏 什么神秘大奖啊, 赶紧开始吧!', 2500)
             .addScene(theater.replay.bind(theater))
 
         this.$sendContainer.classList.add('bounceInUp')

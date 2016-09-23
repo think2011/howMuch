@@ -20,10 +20,10 @@ let toast = new class Toast {
         document.body.appendChild(div)
 
         setTimeout(() => {
-            /*    div.classList.remove('fadeInRight')
-             div.classList.add('fadeOutRight')
-             tools.animationEvent(div, 'AnimationEnd', () => div.remove())
-             cb && cb()*/
+            div.classList.remove('fadeInRight')
+            div.classList.add('fadeOutRight')
+            tools.animationEvent(div, 'AnimationEnd', () => div.remove())
+            cb && cb()
         }, options.time)
     }
 }

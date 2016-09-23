@@ -49,7 +49,7 @@ var Scene1 = function () {
                 "maxSpeed": 150
             });
 
-            theater.addActor('typeing').addScene('typeing:😏 多大的事啊, 我来帮你吧!', 2500).addScene(theater.replay.bind(theater));
+            theater.addActor('typeing').addScene('typeing:😏 什么神秘大奖啊, 赶紧开始吧!', 2500).addScene(theater.replay.bind(theater));
 
             this.$sendContainer.classList.add('bounceInUp');
             this.$sendContainer.classList.add('active');
