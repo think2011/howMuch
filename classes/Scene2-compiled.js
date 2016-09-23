@@ -25,7 +25,7 @@ var Scene2 = function () {
                 // toast({content: '🙏 最多只能定3次价格噢, 不然来不及了', time: 4000})
             }, 1000);
 
-            this.$container.classList.add('bounceInDown');
+            this.$container.classList.add('bounceInUp');
             this.$container.classList.add('animated');
             this.$container.style.display = 'block';
 
@@ -53,7 +53,7 @@ var Scene2 = function () {
 
             this.$prices.innerHTML = '';
             prices.forEach(function (item) {
-                var html = '\n        <li class="item">\n            <button data-price="' + item + '">￥' + item + '</button>\n        </li>';
+                var html = '\n        <li class="item">\n            <button data-price="' + item + '">' + item + '</button>\n        </li>';
 
                 _this2.$prices.innerHTML += html;
             });
@@ -71,24 +71,25 @@ var Scene2 = function () {
             this.count--;
 
             var resultMap = {
-                ok: ['flip', '看起来很合适, 就定这个价!', 1000000],
+                ok: ['flip', '看起来很合适, 就定这个价!', 3000],
                 high: ['wobble', '太贵了吧', 3000],
                 low: ['wobble', '太便宜了吧', 3000]
             };
             var result = price === this.price ? 'ok' : price > this.price ? 'high' : 'low';
+            var face = null;
+
+            if (result !== 'ok') {
+                $target.setAttribute('disabled', 'disabled');
+                $target.classList.add('disabled');
+                face = ['😂', '😨', '😥', '😓'][parseInt(Math.random() * 4)];
+            } else {
+                face = '😘';
+                $target.classList.add('success');
+            }
 
             $target.classList.add('animated');
             $target.classList.add(resultMap[result][0]);
             tools.animationEvent($target, 'AnimationEnd', function () {
-                var face = null;
-
-                if (result !== 'ok') {
-                    $target.setAttribute('disabled', 'disabled');
-                    face = ['😂', '😨', '😥', '😓'][parseInt(Math.random() * 4)];
-                } else {
-                    face = '😘';
-                }
-
                 $target.classList.remove(resultMap[result][0]);
                 toast({ content: face + ' ' + resultMap[result][1], time: resultMap[result][2] });
 

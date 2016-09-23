@@ -1,10 +1,13 @@
 .toast-container {
-  width: 100%;
+  max-width: 80%;
   position: fixed;
-  top: 0;
-  background: seagreen;
-  padding: px2rem(30) px2rem(32);
-  font-size: px2rem(30);
+  color: #FF281E;
+  font-weight: bold;
+  background: #FFFD65;
+  padding: px2rem(30) px2rem(35);
+  font-size: px2rem(35);
   animation-duration: .3s;
-
+  border-radius: .21333rem 0 0 .21333rem;
+  top: px2rem(610);
+  right: 0;
 }

@@ -18,11 +18,15 @@ class Scene1 {
             }, 300)
         })
 
+
+        this.startTyping()
         // 开始游戏
         this.$start.addEventListener('click', () => {
-            tools.animationEvent(this.$container, 'AnimationEnd', this.destroy.bind(this))
+            tools.animationEvent(this.$container, 'AnimationEnd', () => {
+                this.destroy.bind(this)
+            })
 
-            this.$container.classList.add('bounceOutLeft')
+            this.$container.classList.add('slideOutUp')
             this.$container.classList.add('animated')
             new Scene2()
         }, false)
@@ -37,7 +41,7 @@ class Scene1 {
             "minSpeed": 50,
             "maxSpeed": 150
         })
-        
+
         theater
             .addActor('typeing')
             .addScene('typeing:😏 多大的事啊, 我来帮你吧!', 2500)

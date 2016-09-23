@@ -30,11 +30,14 @@ var Scene1 = function () {
                 }, 300);
             });
 
+            this.startTyping();
             // 开始游戏
             this.$start.addEventListener('click', function () {
-                tools.animationEvent(_this.$container, 'AnimationEnd', _this.destroy.bind(_this));
+                tools.animationEvent(_this.$container, 'AnimationEnd', function () {
+                    _this.destroy.bind(_this);
+                });
 
-                _this.$container.classList.add('bounceOutLeft');
+                _this.$container.classList.add('slideOutUp');
                 _this.$container.classList.add('animated');
                 new Scene2();
             }, false);
