@@ -37,7 +37,7 @@ class Scene1 {
             "minSpeed": 50,
             "maxSpeed": 150
         })
-
+        
         theater
             .addActor('typeing')
             .addScene('typeing:😏 多大的事啊, 我来帮你吧!', 2500)

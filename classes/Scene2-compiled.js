@@ -22,8 +22,8 @@ var Scene2 = function () {
             var _this = this;
 
             setTimeout(function () {
-                toast({ content: '🙏 最多只能定3次价格噢, 不然来不及了', time: 4000 });
-            }, 1200);
+                // toast({content: '🙏 最多只能定3次价格噢, 不然来不及了', time: 4000})
+            }, 1000);
 
             this.$container.classList.add('bounceInDown');
             this.$container.classList.add('animated');
@@ -39,12 +39,19 @@ var Scene2 = function () {
             });
         }
     }, {
+        key: 'restart',
+        value: function restart() {
+            this.count = 3;
+            this.renderPrices(this.price);
+        }
+    }, {
         key: 'renderPrices',
         value: function renderPrices(price) {
             var _this2 = this;
 
             var prices = tools.createPrices(price);
 
+            this.$prices.innerHTML = '';
             prices.forEach(function (item) {
                 var html = '\n        <li class="item">\n            <button data-price="' + item + '">￥' + item + '</button>\n        </li>';
 
@@ -64,9 +71,9 @@ var Scene2 = function () {
             this.count--;
 
             var resultMap = {
-                ok: ['flip', '看起来很合适, 就定这个价!'],
-                high: ['wobble', '太贵了吧'],
-                low: ['wobble', '太便宜了吧']
+                ok: ['flip', '看起来很合适, 就定这个价!', 1000000],
+                high: ['wobble', '太贵了吧', 3000],
+                low: ['wobble', '太便宜了吧', 3000]
             };
             var result = price === this.price ? 'ok' : price > this.price ? 'high' : 'low';
 
@@ -83,18 +90,19 @@ var Scene2 = function () {
                 }
 
                 $target.classList.remove(resultMap[result][0]);
-                toast({ content: face + ' ' + resultMap[result][1] });
+                toast({ content: face + ' ' + resultMap[result][1], time: resultMap[result][2] });
+
+                _this3.judgeing = false;
 
                 if (_this3.count < 1) {
                     return _this3.gameOver();
                 }
-                _this3.judgeing = false;
             });
         }
     }, {
         key: 'gameOver',
         value: function gameOver() {
-            alert('游戏停止');
+            // this.restart()
         }
     }]);
 

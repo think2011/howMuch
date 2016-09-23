@@ -6,7 +6,7 @@ let toast = new class Toast {
 
         return (options, cb) => this.render(options, cb)
     }
-
+ 
     render(options, cb) {
         options = Object.assign(this.defaults, options)
 

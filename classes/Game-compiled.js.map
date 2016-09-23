@@ -1,1 +1,0 @@
-{"version":3,"sources":["Game.js"],"names":[],"mappings":";;;;IAAM,I,GACF,gBAAc;AAAA;AAEb,C","file":"Game-compiled.js","sourcesContent":["class Game {\n    constructor() {\n\n    }\n}"]}

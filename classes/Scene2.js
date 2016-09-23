@@ -10,8 +10,8 @@ class Scene2 {
 
     init() {
         setTimeout(() => {
-            toast({content: '🙏 最多只能定3次价格噢, 不然来不及了', time: 4000})
-        }, 1200)
+            // toast({content: '🙏 最多只能定3次价格噢, 不然来不及了', time: 4000})
+        }, 1000)
 
         this.$container.classList.add('bounceInDown')
         this.$container.classList.add('animated')
@@ -27,10 +27,15 @@ class Scene2 {
         })
     }
 
+    restart() {
+        this.count = 3
+        this.renderPrices(this.price)
+    }
 
     renderPrices(price) {
         let prices = tools.createPrices(price)
 
+        this.$prices.innerHTML = ''
         prices.forEach((item) => {
             let html = `
         <li class="item">
@@ -41,7 +46,6 @@ class Scene2 {
         })
     }
 
-
     judge(price, $target) {
         if (this.judgeing) return
 
@@ -51,9 +55,9 @@ class Scene2 {
         this.count--
 
         let resultMap = {
-            ok  : ['flip', '看起来很合适, 就定这个价!'],
-            high: ['wobble', '太贵了吧'],
-            low : ['wobble', '太便宜了吧']
+            ok  : ['flip', '看起来很合适, 就定这个价!', 1000000],
+            high: ['wobble', '太贵了吧', 3000],
+            low : ['wobble', '太便宜了吧', 3000]
         }
         let result    = price === this.price ? 'ok' : price > this.price ? 'high' : 'low'
 
@@ -70,16 +74,17 @@ class Scene2 {
             }
 
             $target.classList.remove(resultMap[result][0])
-            toast({content: `${face} ${resultMap[result][1]}`})
+            toast({content: `${face} ${resultMap[result][1]}`, time: resultMap[result][2]})
+
+            this.judgeing = false
 
             if (this.count < 1) {
                 return this.gameOver()
             }
-            this.judgeing = false
         })
     }
 
     gameOver() {
-        alert('游戏停止')
+        // this.restart()
     }
 }

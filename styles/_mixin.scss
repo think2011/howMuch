@@ -13,7 +13,6 @@
 
 * Forked from https://github.com/juanbrujo/triangle-mixin.less
 */
-
 @mixin triangle($direction, $sizeH, $sizeV, $color) {
   content: '';
   display: block;

@@ -45,7 +45,7 @@
       }
 
       &:nth-child(4) {
-        animation-delay: 4.5s;
+        animation-delay: 3.5s;
       }
 
       img.avatar {
@@ -95,6 +95,7 @@
     bottom: 0;
     background: #fff url("../assets/img/send.png") no-repeat 0 0;
     background-size: 100% 100%;
+    display: none;
     display: none;
     align-items: center;
 
