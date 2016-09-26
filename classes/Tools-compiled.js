@@ -1,5 +1,7 @@
 "use strict";
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19,6 +21,26 @@ var tools = new (function () {
                 element.addEventListener(pfx[p] + type, callback, false);
             }
         }
+    }, {
+        key: "random",
+        value: function random(min, max) {
+            var retain = arguments.length <= 2 || arguments[2] === undefined ? 2 : arguments[2];
+
+            return this.decimal(Math.random() * (max - min + 1) + min, retain);
+        }
+    }, {
+        key: "decimal",
+        value: function decimal(num, v) {
+            var _split = (num + '').split('.');
+
+            var _split2 = _slicedToArray(_split, 2);
+
+            var a = _split2[0];
+            var b = _split2[1];
+
+
+            return +(a + '.' + b.substr(0, v));
+        }
 
         /**
          * 随机产生价格浮动范围
@@ -33,14 +55,14 @@ var tools = new (function () {
 
             seed = +seed;
             var ret = [];
-            var min = seed - seed * 0.3;
-            var max = seed + seed * 0.3;
+            var min = seed - seed * 0.35;
+            var max = seed + seed * 0.35;
 
             while (--num) {
-                ret.push((Math.random() * (max - min + 1) + min).toFixed(2));
+                ret.push(this.random(min, max));
             }
 
-            ret.splice(parseInt(Math.random() * (5 + 1)), 0, seed.toFixed(2));
+            ret.splice(this.random(0, ret.length), 0, seed.toFixed(2));
 
             return ret;
         }

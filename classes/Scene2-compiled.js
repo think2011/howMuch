@@ -10,6 +10,7 @@ var Scene2 = function () {
 
         this.$container = document.querySelector('#scene2');
         this.$prices = this.$container.querySelector('.prices');
+        this.$imgContainer = this.$container.querySelector('.img');
 
         this.init();
     }
@@ -36,9 +37,13 @@ var Scene2 = function () {
     }, {
         key: 'start',
         value: function start() {
-            this.price = 200;
+            GAME_PARAMS.items.push(GAME_PARAMS.items.shift());
+            var item = GAME_PARAMS.items[0];
+
+            this.price = +(item.promoPrice || item.price);
             this.count = 4;
             this.renderPrices(this.price);
+            this.renderGoods(item);
         }
     }, {
         key: 'renderPrices',
@@ -49,10 +54,15 @@ var Scene2 = function () {
 
             this.$prices.innerHTML = '';
             prices.forEach(function (item) {
-                var html = '\n        <li class="item animated">\n            <button data-price="' + item + '">' + item + '</button>\n        </li>';
-
-                _this2.$prices.innerHTML += html;
+                _this2.$prices.innerHTML += '\n        <li class="item animated">\n            <button data-price="' + item + '">' + item + '</button>\n        </li>';
             });
+
+            this.judgeing = false;
+        }
+    }, {
+        key: 'renderGoods',
+        value: function renderGoods(item) {
+            this.$imgContainer.innerHTML = '\n            <img src="' + item.picUrl + '_500x500.jpg_.webp">\n            <div class="title">' + item.title + '</div>\n';
         }
     }, {
         key: 'judge',
@@ -85,15 +95,32 @@ var Scene2 = function () {
             tools.animationEvent($target, 'AnimationEnd', function () {
                 _this3.judgeing = false;
 
-                if (_this3.count < 0) {
-                    return _this3.gameOver();
-                }
-
                 if (result !== 'ok') {
                     $target.classList.remove(resultMap[result][0]);
                     toast({ content: '' + resultMap[result][1], time: resultMap[result][2] });
                 } else {
-                    dialog.success();
+                    return _this3.gamePass();
+                }
+
+                if (_this3.count < 0) {
+                    _this3.judgeing = true;
+                    setTimeout(function () {
+                        return _this3.gameOver();
+                    }, 500);
+                }
+            });
+        }
+    }, {
+        key: 'gamePass',
+        value: function gamePass() {
+            dialog.success({
+                content: '<div class="only-text">恭喜您获得了抽奖机会!</div>',
+                btn1: {
+                    title: '马上抽奖',
+                    click: function click() {
+                        dialog.close();
+                        dialog.win(3, 100);
+                    }
                 }
             });
         }

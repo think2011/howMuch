@@ -1,7 +1,8 @@
 class Scene2 {
     constructor() {
-        this.$container = document.querySelector('#scene2')
-        this.$prices    = this.$container.querySelector('.prices')
+        this.$container    = document.querySelector('#scene2')
+        this.$prices       = this.$container.querySelector('.prices')
+        this.$imgContainer = this.$container.querySelector('.img')
 
         this.init()
     }
@@ -23,9 +24,13 @@ class Scene2 {
     }
 
     start() {
-        this.price = 200
+        GAME_PARAMS.items.push(GAME_PARAMS.items.shift())
+        let item = GAME_PARAMS.items[0]
+
+        this.price = +(item.promoPrice || item.price)
         this.count = 4
         this.renderPrices(this.price)
+        this.renderGoods(item)
     }
 
     renderPrices(price) {
@@ -33,13 +38,20 @@ class Scene2 {
 
         this.$prices.innerHTML = ''
         prices.forEach((item) => {
-            let html = `
+            this.$prices.innerHTML += `
         <li class="item animated">
             <button data-price="${item}">${item}</button>
         </li>`
-
-            this.$prices.innerHTML += html
         })
+
+        this.judgeing = false
+    }
+
+    renderGoods(item) {
+        this.$imgContainer.innerHTML = `
+            <img src="${item.picUrl}_500x500.jpg_.webp">
+            <div class="title">${item.title}</div>
+`
     }
 
     judge(price, $target) {
@@ -69,15 +81,30 @@ class Scene2 {
         tools.animationEvent($target, 'AnimationEnd', () => {
             this.judgeing = false
 
-            if (this.count < 0) {
-                return this.gameOver()
-            }
-
             if (result !== 'ok') {
                 $target.classList.remove(resultMap[result][0])
                 toast({content: `${resultMap[result][1]}`, time: resultMap[result][2]})
             } else {
-                dialog.success()
+                return this.gamePass()
+            }
+
+            if (this.count < 0) {
+                this.judgeing = true
+                setTimeout(() => this.gameOver(), 500)
+            }
+
+        })
+    }
+
+    gamePass() {
+        dialog.success({
+            content: '<div class="only-text">恭喜您获得了抽奖机会!</div>',
+            btn1   : {
+                title: '马上抽奖',
+                click: () => {
+                    dialog.close()
+                    dialog.win(3, 100)
+                }
             }
         })
     }

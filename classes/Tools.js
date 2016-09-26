@@ -12,6 +12,16 @@ let tools = new class Tools {
         }
     }
 
+    random(min, max, retain = 2) {
+        return this.decimal((Math.random() * (max - min + 1) + min), retain)
+    }
+
+    decimal(num, v) {
+        let [a, b] = (num + '').split('.')
+
+        return +(a + '.' + b.substr(0, v))
+    }
+
     /**
      * 随机产生价格浮动范围
      * @param seed
@@ -20,14 +30,14 @@ let tools = new class Tools {
     createPrices(seed, num = 6) {
         seed    = (+seed)
         let ret = []
-        let min = seed - (seed * 0.3)
-        let max = seed + (seed * 0.3)
+        let min = seed - (seed * 0.35)
+        let max = seed + (seed * 0.35)
 
         while (--num) {
-            ret.push((Math.random() * (max - min + 1) + min).toFixed(2))
+            ret.push(this.random(min, max))
         }
 
-        ret.splice(parseInt(Math.random() * (5 + 1)), 0, seed.toFixed(2))
+        ret.splice(this.random(0, ret.length), 0, seed.toFixed(2))
 
         return ret
     }
