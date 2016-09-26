@@ -7,5 +7,5 @@ import Scene2 from './classes/Scene2'
 
 import './styles/common.scss'
 
-// new Scene1()
-new Scene2()
+new Scene1()
+// new Scene2()

@@ -27,11 +27,12 @@ export default class Scene2 {
     }
 
     start() {
-        GAME_PARAMS.items.push(GAME_PARAMS.items.shift())
         let item = GAME_PARAMS.items[0]
 
+        $('.toast-container').remove()
+        GAME_PARAMS.items.push(GAME_PARAMS.items.shift())
         this.price = +(item.promoPrice || item.price)
-        this.count = 4
+        this.count = 3
         this.renderPrices(this.price)
         this.renderGoods(item)
     }
@@ -67,8 +68,8 @@ export default class Scene2 {
 
         let resultMap = {
             ok  : ['flip', '😘 没错, 就是这个价!', 3000],
-            high: ['fadeIn', '😂 太贵了', 3000],
-            low : ['fadeIn', '😓 太便宜了', 3000]
+            high: ['fadeIn', '😂 太高了', 3000],
+            low : ['fadeIn', '😓 太低了', 3000]
         }
         let result    = price === this.price ? 'ok' : price > this.price ? 'high' : 'low'
 
@@ -83,12 +84,15 @@ export default class Scene2 {
         $target.classList.add(resultMap[result][0])
         tools.animationEvent($target, 'AnimationEnd', () => {
             this.judgeing = false
+            $target.classList.remove(resultMap[result][0])
+            toast({content: `${resultMap[result][1]}`, time: resultMap[result][2]})
 
-            if (result !== 'ok') {
-                $target.classList.remove(resultMap[result][0])
-                toast({content: `${resultMap[result][1]}`, time: resultMap[result][2]})
-            } else {
-                return this.gamePass()
+            if (result === 'ok') {
+                setTimeout(() => {
+                    this.gamePass()
+                }, 1200)
+
+                return this.judgeing = true
             }
 
             if (this.count < 0) {
