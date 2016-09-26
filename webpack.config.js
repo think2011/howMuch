@@ -10,9 +10,10 @@ const PRODUCTION = process.env.NODE_ENV === 'production'
 module.exports = {
     devtool  : 'eval-source-map',
     devServer: {
-        hot   : true,
-        inline: true,
-        port  : 3000
+        hot        : true,
+        inline     : true,
+        port       : 3000,
+        contentBase: './src/',
     },
     entry    : './src/app.js',
     output   : {
