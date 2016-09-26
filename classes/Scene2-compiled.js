@@ -10,8 +10,6 @@ var Scene2 = function () {
 
         this.$container = document.querySelector('#scene2');
         this.$prices = this.$container.querySelector('.prices');
-        this.price = 200;
-        this.count = 3;
 
         this.init();
     }
@@ -25,7 +23,6 @@ var Scene2 = function () {
             this.$container.classList.add('animated');
             this.$container.style.display = 'block';
 
-            this.renderPrices(this.price);
             this.$prices.addEventListener('click', function (event) {
                 var $target = event.target;
 
@@ -33,11 +30,14 @@ var Scene2 = function () {
 
                 _this.judge(+$target.dataset.price, $target);
             });
+
+            this.start();
         }
     }, {
-        key: 'restart',
-        value: function restart() {
-            this.count = 3;
+        key: 'start',
+        value: function start() {
+            this.price = 200;
+            this.count = 4;
             this.renderPrices(this.price);
         }
     }, {
@@ -68,8 +68,8 @@ var Scene2 = function () {
 
             var resultMap = {
                 ok: ['flip', '😘 没错, 就是这个价!', 3000],
-                high: ['wobble', '😂 太贵了', 3000],
-                low: ['wobble', '😓 太便宜了', 3000]
+                high: ['fadeIn', '😂 太贵了', 3000],
+                low: ['fadeIn', '😓 太便宜了', 3000]
             };
             var result = price === this.price ? 'ok' : price > this.price ? 'high' : 'low';
 
@@ -83,20 +83,34 @@ var Scene2 = function () {
             $target.classList.add('animated');
             $target.classList.add(resultMap[result][0]);
             tools.animationEvent($target, 'AnimationEnd', function () {
-                $target.classList.remove(resultMap[result][0]);
-                toast({ content: '' + resultMap[result][1], time: resultMap[result][2] });
-
                 _this3.judgeing = false;
 
-                if (_this3.count < 1) {
+                if (_this3.count < 0) {
                     return _this3.gameOver();
+                }
+
+                if (result !== 'ok') {
+                    $target.classList.remove(resultMap[result][0]);
+                    toast({ content: '' + resultMap[result][1], time: resultMap[result][2] });
+                } else {
+                    dialog.success();
                 }
             });
         }
     }, {
         key: 'gameOver',
         value: function gameOver() {
-            // this.restart()
+            var _this4 = this;
+
+            dialog.fail({
+                btn1: {
+                    title: '再来一次',
+                    click: function click() {
+                        dialog.close();
+                        _this4.start();
+                    }
+                }
+            });
         }
     }]);
 

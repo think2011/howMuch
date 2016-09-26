@@ -29,7 +29,7 @@ var tools = new (function () {
     }, {
         key: "createPrices",
         value: function createPrices(seed) {
-            var num = arguments.length <= 1 || arguments[1] === undefined ? 4 : arguments[1];
+            var num = arguments.length <= 1 || arguments[1] === undefined ? 6 : arguments[1];
 
             seed = +seed;
             var ret = [];

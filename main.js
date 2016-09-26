@@ -1,2 +1,2 @@
-new Scene1()
-// new Scene2()
+// new Scene1()
+new Scene2()

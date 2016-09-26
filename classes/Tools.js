@@ -17,7 +17,7 @@ let tools = new class Tools {
      * @param seed
      * @param num
      */
-    createPrices(seed, num = 4) {
+    createPrices(seed, num = 6) {
         seed    = (+seed)
         let ret = []
         let min = seed - (seed * 0.3)
