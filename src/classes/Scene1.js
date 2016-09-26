@@ -1,4 +1,8 @@
-class Scene1 {
+import tools from './Tools'
+import theaterJS from '../assets/lib/theater'
+import Scene2 from './Scene2'
+
+export default class Scene1 {
     constructor() {
         this.$container     = document.querySelector('#scene1')
         this.$chatContainer = this.$container.querySelector('.chat-container')

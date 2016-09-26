@@ -3,39 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>猜价格</title>
-    <script src="./assets/lib/hotcss.js"></script>
-    <link rel="stylesheet" href="./styles/common.css">
 </head>
 <body>
 <div id="scene1">
     <div class="chat-container">
-        <!--        <div class="item animated">
-                    <img class="avatar" src="http://placeimg.com/85/85/people" alt="">
-                    <div class="msg">
-                        😏
-                    </div>
-                </div>
-
-                <div class="item right animated">
-                    <img class="avatar" src="http://placeimg.com/85/85/people?me" alt="">
-                    <div class="msg">
-                        干嘛
-                    </div>
-                </div>
-
-                <div class="item animated">
-                    <img class="avatar" src="http://placeimg.com/85/85/people" alt="">
-                    <div class="msg">
-                        😌 你能猜出这件宝贝的价格, 就送你🎁
-                    </div>
-                </div>
-
-                <div class="item animated">
-                    <img class="avatar" src="http://placeimg.com/85/85/people" alt="">
-                    <div class="msg img">
-                        <img src="./assets/img/gift.png" alt="">
-                    </div>
-                </div>-->
+        <!-- 暂时屏蔽 -->
     </div>
 
     <button class="btn-send start animated">开始游戏</button>
@@ -99,22 +71,17 @@
                 own          : false,
                 activityPrice: "19998.00"
             }
-        ],
+        ]
     }
 </script>
+
+<!-- 公共引用 -->
+<script src="./assets/lib/hotcss.js"></script>
 <script src="assets/lib/zepto.js"></script>
 <script src="assets/lib/touch.js"></script>
 <link rel="stylesheet" href="assets/lib/dialog/game-dialog.css">
 <script src="assets/lib/dialog/game-dialog.js"></script>
 
-<script src="assets/lib/fastclick.js"></script>
-<script src="assets/lib/theater.js"></script>
-<script src="classes/Tools-compiled.js"></script>
-<script src="classes/Toast-compiled.js"></script>
-
-<script src="classes/Scene1-compiled.js"></script>
-<script src="classes/Scene2-compiled.js"></script>
-
-<script src="./main-compiled.js"></script>
+<!-- 构建文件会自动注入 -->
 </body>
 </html>

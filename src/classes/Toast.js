@@ -1,4 +1,6 @@
-let toast = new class Toast {
+import tools from './Tools'
+
+export default new class Toast {
     constructor() {
         this.defaults = {
             time: 3000

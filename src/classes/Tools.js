@@ -1,4 +1,9 @@
-let tools = new class Tools {
+import toast from './Toast'
+import FastClick from '../assets/lib/fastclick'
+
+export {toast}
+
+export default new class Tools {
     constructor() {
 
     }

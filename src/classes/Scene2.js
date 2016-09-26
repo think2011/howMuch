@@ -1,4 +1,7 @@
-class Scene2 {
+import tools, {toast} from './Tools'
+
+
+export default class Scene2 {
     constructor() {
         this.$container    = document.querySelector('#scene2')
         this.$prices       = this.$container.querySelector('.prices')
