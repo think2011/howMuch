@@ -1,1 +1,0 @@
-{"version":3,"sources":["Dialog.js"],"names":[],"mappings":";;;;AAAA,IAAI,SAAS,IACT,kBAAc;AAAA;AAEb,CAHQ,EAAb","file":"Dialog-compiled.js","sourcesContent":["let dialog = new class Dialog {\n    constructor() {\n\n    }\n}"]}

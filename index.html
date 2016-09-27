@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
     <title>猜价格</title>
+    <link rel="stylesheet" href="styles/common.css">
 </head>
 <body>
 <div id="scene1">
@@ -26,7 +27,7 @@
     </div>
 
     <div class="ask  animated">
-        <img src="./assets/img/s2-2.png" alt="">
+        <img src="img/s2-2.png" alt="">
     </div>
 
     <ul class="prices  animated"></ul>
@@ -73,12 +74,13 @@
 </script>
 
 <!-- 公共引用 -->
-<script src="./assets/lib/hotcss.js"></script>
-<script src="assets/lib/zepto.js"></script>
-<script src="assets/lib/touch.js"></script>
-<link rel="stylesheet" href="assets/lib/dialog/game-dialog.css">
-<script src="assets/lib/dialog/game-dialog.js"></script>
+<script src="js/lib/hotcss.js"></script>
+<script src="js/lib/zepto.js"></script>
+<script src="js/lib/touch.js"></script>
+<link rel="stylesheet" href="js/lib/dialog/game-dialog.css">
+<script src="js/lib/dialog/game-dialog.js"></script>
 
-<!-- 构建文件会自动注入 -->
+<!-- 应用入口 -->
+<script data-main="js/main" src="./js/lib/require.js"></script>
 </body>
 </html>
