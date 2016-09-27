@@ -10,6 +10,7 @@ require.config({
     }
 })
 
+
 require(['Scene1', 'Scene2'], function (Scene1, Scene2) {
     new Scene1()
 })
