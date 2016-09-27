@@ -43,8 +43,14 @@
   }
 }
 
-@media screen and (max-height: 1000px) {
-  html {
+@media screen and (max-height: 1020px) {
+  html[data-dpr="2"] {
     font-size: 36.5px !important;
+  }
+}
+
+@media screen and (max-height: 1560px) {
+  html[data-dpr="3"] {
+    font-size: 61.5px !important;
   }
 }
