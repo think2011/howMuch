@@ -53,7 +53,7 @@ export default class Scene2 {
 
     renderGoods(item) {
         this.$imgContainer.innerHTML = `
-            <img src="${item.picUrl}_500x500.jpg_.webp">
+            <img src="${item.picUrl}_500x500.jpg">
             <div class="title">${item.title}</div>
 `
     }

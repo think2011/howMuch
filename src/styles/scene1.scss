@@ -4,7 +4,7 @@
   background-size: 100%;
   display: none;
 
-  .chat-container {
+  .container {
     .title {
       width: px2rem(750);
       height: px2rem(310);
@@ -40,5 +40,11 @@
         background-size: 100%;
       }
     }
+  }
+}
+
+@media screen and (max-height: 1000px) {
+  html {
+    font-size: 36.5px !important;
   }
 }
