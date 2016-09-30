@@ -32,7 +32,8 @@ define(['tools', 'toast'], function (tools, toast) {
 
             $('.toast-container').remove()
             GAME_PARAMS.items.push(GAME_PARAMS.items.shift())
-            this.price = +(item.promoPrice || item.price)
+            this.price = (+(item.promoPrice || item.price)).toFixed(0)
+            this.price = +this.price
             this.count = 3
             this.renderPrices(this.price)
             this.renderGoods(item)
@@ -111,13 +112,13 @@ define(['tools', 'toast'], function (tools, toast) {
         },
 
         gamePass: function () {
-            dialog.success({
+            GameDialog.success({
                 content: '<div class="only-text">恭喜您获得了抽奖机会!</div>',
                 btn1   : {
                     title: '马上抽奖',
                     click: function () {
-                        dialog.close()
-                        dialog.win(3, 100)
+                        GameDialog.close()
+                        GameDialog.win(3, 100)
                     }
                 }
             })
@@ -126,11 +127,11 @@ define(['tools', 'toast'], function (tools, toast) {
         gameOver: function () {
             var that = this
 
-            dialog.fail({
+            GameDialog.fail({
                 btn1: {
                     title: '再来一次',
                     click: function () {
-                        dialog.close()
+                        GameDialog.close()
                         that.start()
                     }
                 }

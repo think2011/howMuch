@@ -37,6 +37,18 @@ ul, li {
   margin: auto;
 }
 
+@media screen and (max-height: 1000px) {
+  html[data-dpr="2"] {
+    font-size: 36.5px !important;
+  }
+}
+
+@media screen and (max-height: 1560px) {
+  html[data-dpr="3"] {
+    font-size: 61.5px !important;
+  }
+}
+
 @import "./toast.scss";
 @import "./scene1.scss";
 @import "./scene2.scss";

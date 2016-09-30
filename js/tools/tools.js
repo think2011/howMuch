@@ -118,10 +118,10 @@ define(['Fastclick'], function (FastClick) {
             var max = seed + (seed * 0.35)
 
             while (--num) {
-                ret.push(this.random(min, max))
+                ret.push(+(this.random(min, max).toFixed(0)))
             }
 
-            ret.splice(this.random(0, ret.length), 0, seed.toFixed(2))
+            ret.splice(this.random(0, ret.length), 0, seed.toFixed(0))
 
             return ret
         }
