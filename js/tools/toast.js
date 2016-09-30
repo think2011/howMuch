@@ -14,6 +14,8 @@ define(['tools'], function (tools) {
         construct: Class,
 
         render: function (options, cb) {
+            $('.toast-container').remove()
+
             var that = this
 
             options = Object.assign(that.defaults, options)

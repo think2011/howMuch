@@ -16,7 +16,7 @@ define(['tools', 'toast'], function (tools, toast) {
             that.$container.classList.add('animated')
             that.$container.style.display = 'block'
 
-            that.$prices.addEventListener('click', function () {
+            $(that.$prices).on('tap', function () {
                 var $target = event.target
 
                 if ($target.tagName !== 'BUTTON') return
@@ -52,6 +52,13 @@ define(['tools', 'toast'], function (tools, toast) {
             })
 
             this.judgeing = false
+
+            setTimeout(function () {
+                toast({
+                    content: '👏 你有 ' + that.count + '次 的猜价机会哦',
+                    time   : 10000
+                })
+            }, 1100)
         },
 
         renderGoods: function (item) {
