@@ -5,13 +5,27 @@
   display: none;
 
   .container {
+    .rules {
+      width: px2rem(92);
+      height: px2rem(95);
+      animation-delay: .9s;
+      animation-duration: .7s;
+      background: url("../img/game-rules.png") no-repeat 0 0;
+      background-size: 100%;
+      position: absolute;
+      top: 0;
+      right: px2rem(30);
+      z-index: 2;
+    }
+
     .title {
       width: px2rem(750);
-      height: px2rem(310);
+      height: px2rem(379);
       animation-delay: .5s;
       animation-duration: .7s;
       background: url("../img/s1-1.png") no-repeat 0 0;
       background-size: 100%;
+      z-index: 1;
     }
 
     .body {
